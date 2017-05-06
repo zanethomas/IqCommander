@@ -48,16 +48,16 @@
     <Reference Include="WindowsBase" />
     <Reference Include="System.Data" />
     <Reference Include="System.Configuration" />
-    <Reference Include="Mono.Options">
-      <HintPath>..\packages\Mono.Options.5.3.0\lib\net4-client\Mono.Options.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.Options">
+      <HintPath>..\packages\Mono.Options.4.4.0.0\lib\net4-client\Mono.Options.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Npgsql">
-      <HintPath>..\packages\Npgsql.3.2.2\lib\net45\Npgsql.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\packages\Npgsql.3.1.9\lib\net45\Npgsql.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
