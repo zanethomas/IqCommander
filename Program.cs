@@ -32,7 +32,15 @@ namespace IqFeed {
 						() => Console.WriteLine("Sequence Completed.")
 					);
 				}
-				Task.Run(() => commander.Run(admin)).Wait();
+                try {
+					Task.Run(() => commander.Run(admin)).Wait();
+				} catch (Exception e) {
+                    Console.WriteLine(e.Message);
+                    if(e.InnerException != null) {
+                        Console.WriteLine(e.InnerException.Message);
+                    }
+                }
+
 
 			} else {
 				Console.WriteLine("bad admin");
