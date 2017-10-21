@@ -6,7 +6,7 @@ also be handy to have a REPL for sampling the iqfeed data and trying out various
 The result is reasonably useful at this time. Historical Tick data is supported, Interval data is not supported yet but will
 be added soon.
 
-To use this you will need to create an app.config file:
+To use this you will need to create an app.config file (modify app.example.config):
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
