@@ -66,9 +66,11 @@ namespace IqFeed.Core {
 			while (!streamReader.EndOfStream) {
 				line = await streamReader.ReadLineAsync();
 				if (CheckEndMessage(line) == true) {
+                    callback(null);
 					break;
+                } else {
+					callback(line);
 				}
-				callback(line);
 			}
 		}
 

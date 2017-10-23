@@ -64,6 +64,7 @@ namespace IqFeed {
 		}
 		private void Done() {
 			writer.Close();
+            this.tickResponses.Dispose();
 		}
 
 		public void Dispose() {

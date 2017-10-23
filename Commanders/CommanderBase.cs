@@ -60,7 +60,11 @@ namespace IqFeed.Commanders {
 				int i = command.IndexOf(',') + 1;
 
 				filename = command.Substring(i, 11);
-				csvwriter = new CsvWriter(TickResponses, IntervalResponses, filename);
+
+				TickResponses = new Subject<TicksResponse>();
+		        IntervalResponses = new Subject<IntervalsResponse>();
+
+		        csvwriter = new CsvWriter(TickResponses, IntervalResponses, filename);
 			}
 
 			if (type == "run") {
@@ -115,8 +119,13 @@ namespace IqFeed.Commanders {
 			var parts = cmd.Split(',');
 			await history.WriteLine(cmd);
 			await history.GetData(cmd, line => {
-				Responses.OnNext(line);
-				TickResponses.OnNext(new TicksResponse(parts[1], line));
+                if(line != null) {
+					Responses.OnNext(line);
+					TickResponses.OnNext(new TicksResponse(parts[1], line));
+                } else {
+                    csvwriter.Dispose();
+                    Responses.OnCompleted();
+                }
 			});
 		}
 
