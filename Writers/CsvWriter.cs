@@ -41,7 +41,7 @@ namespace IqFeed {
 
 		}
 		private void TicksReponseHandler(TicksResponse tick) {
-			string timestamp = tick.timeStamp.UtcValue.ToString(this.fmtpattern);
+            string timestamp = tick.timeStamp.OriginalValue.ToString(this.fmtpattern);
 			if (this.writer == null) {
 				this.writer = new StreamWriter(filename + ".csv");
 				writer.WriteLine("symbol,timestamp,last,last_size,total_volume,bid,ask,tick_id,basis,trade_market_center,trace_conditions");
